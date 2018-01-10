@@ -1,0 +1,18 @@
+{
+  "variables":{
+    "project_id":"terrycho-sandbox",
+    "prefix":"terrycho-packer"
+  },
+  "builders":[
+   {
+    "type":"googlecompute",
+    "account_file":"/Users/terrycho/keys/terrycho-sandbox-projectowner.json",
+    "project_id":"{{user `project_id`}}",
+    "source_image":"debian-9-stretch-v20180105",
+    "zone":"us-central1-a",
+    "ssh_username":"ubuntu",
+    "image_name":"{{user `prefix`}}-{{timestamp}}",
+    "machine_type":"n1-standard-4"
+   }
+  ]
+}
